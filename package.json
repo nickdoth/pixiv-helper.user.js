@@ -1,0 +1,27 @@
+{
+  "name": "pixiv-helper",
+  "version": "1.0.0",
+  "description": "Pixiv Frontend Helper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pixiv"
+  ],
+  "author": "nickdoth <nick.doth@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "git://gitcafe.com/nickdoth/npm-react-nw"
+  },
+  "devDependencies": {
+    "envify": "^3.4.0",
+    "reactify": "^1.1.0"
+  },
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  }
+}
