@@ -2,7 +2,7 @@
 // @name         Pixiv Helper
 // @namespace    http://gitcafe.com/nickdoth
 // @version      0.1
-// @description  enter something useful
+// @description  P站懒人补丁, 简化收藏和关注等操作.
 // @author       You
 // @match        http://www.pixiv.net/member_illust.php*
 // @grant        none
@@ -135,7 +135,7 @@ $('.add-bookmark').on('click', function(event) {
 	event.preventDefault();
 	var illustId = pixiv.context.illustRecommendSampleIllust;
 	
-	$(btn).html('���Ժ�...');
+	$(btn).html('请稍候...');
 	added = true;
 
 	ajax.post('bookmark_add.php?id=' + illustId, {
@@ -149,12 +149,12 @@ $('.add-bookmark').on('click', function(event) {
 		"tag": "",
 		"restrict": "1"
 	}, function(err, data) {
-		alert('��Ʒ�ղسɹ�');
+		alert('作品收藏成功');
 		$(btn).removeClass('add-bookmark')
 			.addClass('edit-bookmark')
 			.addClass('button-on')
 			.removeClass('_button')
-			.html('�༭�ղ�');
+			.html('编辑收藏');
 	})
 })
 
