@@ -121,6 +121,7 @@ function parseParamMap(map) {
 
 module.exports = ajax;
 
+
 },{}],2:[function(require,module,exports){
 var ajax = require('./ajax');
 
@@ -157,5 +158,6 @@ $('.add-bookmark').on('click', function(event) {
 			.html('编辑收藏');
 	})
 })
+
 
 },{"./ajax":1}]},{},[2]);
