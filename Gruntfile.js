@@ -16,11 +16,14 @@ module.exports = function(grunt) {
     concat: {
       options: {
         separator: '\n\n',
+        process: function(src, filepath) {
+          return src.replace('[[version]]', grunt.file.readJSON('package.json').version);
+        }
       },
       dist: {
         src: ['userscript-header.js', 'build/pixiv-helper.js'],
         dest: 'build/pixiv-helper.user.js',
-      },
+      }
     }
   });
 
