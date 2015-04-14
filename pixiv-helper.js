@@ -152,6 +152,22 @@ $('.add-bookmark').on('click', function(event) {
 
 },{"./ajax":1}],3:[function(require,module,exports){
 require('./bookmark-button');
+require('./ugoira-download');
 
 
-},{"./bookmark-button":2}]},{},[3]);
+},{"./bookmark-button":2,"./ugoira-download":4}],4:[function(require,module,exports){
+// pixiv.context.ugokuIllustFullscreenData
+var bookmarkButton = $('.add-bookmark, .edit-bookmark')[0];
+var ugoiraInfo = pixiv.context.ugokuIllustFullscreenData;
+var ugoiraButton;
+
+if (ugoiraInfo) {
+	ugoiraButton = $('<a class="edit-bookmark button-on">ugoira!</a>').insertBefore(bookmarkButton)
+
+	ugoiraButton[0].href = ugoiraInfo.src;
+}
+
+
+
+
+},{}]},{},[3]);
