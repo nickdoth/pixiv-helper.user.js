@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     browserify: {
       dist: {
         files: {
-          'build/pixiv-helper.js': ['index.js'],
+          'build/pixiv-helper.js': ['entry.js'],
         },
         options: {
           transform: ['reactify', 'envify']
