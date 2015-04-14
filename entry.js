@@ -1,1 +1,1 @@
-require('bookmark-button');
+require('./bookmark-button');
