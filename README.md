@@ -10,9 +10,10 @@ P站懒人补丁
 这个东西都干了啥
 -------------
 
-目前它只干了一件事, 就是使插画收藏可以一键完成. 预计会陆续加入其它功能(比如一键关注等等)
+* 使用`添加收藏`按钮可以一键完成收藏, 默认会添加为非公开.
+* 若插画是动图就会在收藏按钮左方出现`ugoria!`按钮, 用于下载动图的.zip包.
 
-但由于作者也是懒癌晚期, 于是暂时大概就这么的了(喂!) 如果有好点子, 可以发issue给作者.
+但由于作者也是懒癌晚期, 不会很勤快\_(:3 」∠)_大概想到什么就会添加什么( 如果有好点子, 可以发issue给作者.
 
 ----------
 
@@ -22,6 +23,6 @@ P站懒人补丁
 
 首先要安装greasemonkey(Firefox)或者tampermonkey(Chrome), 这里不多说了恩
 
-然后点击[这里](https://gitcafe.com/nickdoth/pixiv-helper/raw/build/pixiv-helper.user.js)按提示步骤安装即可.
+然后点击**[这里](https://gitcafe.com/nickdoth/pixiv-helper/raw/build/pixiv-helper.user.js)**按提示步骤安装即可.
 
 
