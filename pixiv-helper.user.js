@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Pixiv Helper
 // @namespace    http://gitcafe.com/nickdoth/pixiv-helper
-// @version      1.1.3
+// @version      1.2.0
 // @description  P站懒人补丁, 简化收藏和关注等操作.
 // @author       nickdoth <nick.doth@gmail.com>
 // @match        http://www.pixiv.net/member_illust.php*
@@ -11,6 +11,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var ajax = function(url, params, method, callback) {
     var xhr = createXhr();
+    method = method || 'POST';
     method = method.toUpperCase();
     if (typeof params === 'object') {
         params = parseParamMap(params);
@@ -163,16 +164,41 @@ $('.add-bookmark').on('click', function(event) {
 },{"./ajax":1}],3:[function(require,module,exports){
 require('./bookmark-button');
 require('./ugoira-download');
+require('./quick-follow');
 
 
-},{"./bookmark-button":2,"./ugoira-download":4}],4:[function(require,module,exports){
+},{"./bookmark-button":2,"./quick-follow":4,"./ugoira-download":5}],4:[function(require,module,exports){
+var ajax = require('./ajax');
+
+$('body').on('submit', function(event) {
+	console.log(event.target)
+	var form = $(event.target);
+	if (form.find('[name="type"]').val() === 'user') {
+		event.preventDefault();
+	}
+	else {
+		return;
+	}
+
+	ajax.submitForm(form[0], function(err, data) {
+		if (!err) {
+			alert('操作完成');
+		}
+		else {
+			alert('系统繁忙');
+		}
+	});
+})
+
+
+},{"./ajax":1}],5:[function(require,module,exports){
 // pixiv.context.ugokuIllustFullscreenData
 var bookmarkButton = $('.add-bookmark, .edit-bookmark')[0];
 var ugoiraInfo = pixiv.context.ugokuIllustFullscreenData;
 var ugoiraButton;
 
 if (ugoiraInfo) {
-	ugoiraButton = $('<a class="edit-bookmark button-on">ugoira!</a>').insertBefore(bookmarkButton)
+	ugoiraButton = $('<a class="edit-bookmark _button">ugoira!</a>').insertBefore(bookmarkButton)
 
 	ugoiraButton[0].href = ugoiraInfo.src;
 }
