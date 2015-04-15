@@ -1,5 +1,6 @@
 var ajax = function(url, params, method, callback) {
     var xhr = createXhr();
+    method = method || 'POST';
     method = method.toUpperCase();
     if (typeof params === 'object') {
         params = parseParamMap(params);

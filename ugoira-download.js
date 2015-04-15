@@ -4,7 +4,7 @@ var ugoiraInfo = pixiv.context.ugokuIllustFullscreenData;
 var ugoiraButton;
 
 if (ugoiraInfo) {
-	ugoiraButton = $('<a class="edit-bookmark button-on">ugoira!</a>').insertBefore(bookmarkButton)
+	ugoiraButton = $('<a class="edit-bookmark _button">ugoira!</a>').insertBefore(bookmarkButton)
 
 	ugoiraButton[0].href = ugoiraInfo.src;
 }
