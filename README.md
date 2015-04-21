@@ -23,6 +23,6 @@ P站懒人补丁
 
 首先要安装greasemonkey(Firefox)或者tampermonkey(Chrome), 这里不多说了恩
 
-然后点击**[这里](https://gitcafe.com/nickdoth/pixiv-helper/raw/build/pixiv-helper.user.js)**按提示步骤安装即可.
+然后点击**[这里](https://gitcafe.com/nickdoth/pixiv-helper.user.js/raw/build/pixiv-helper.user.js)**按提示步骤安装即可.
 
 
