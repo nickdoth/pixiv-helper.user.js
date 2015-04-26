@@ -1,4 +1,5 @@
 var ajax = require('./ajax');
+var alert = require('./alert');
 
 var added = false;
 

@@ -1,4 +1,5 @@
 var ajax = require('./ajax');
+var alert = require('./alert');
 
 $('body').on('submit', function(event) {
 	console.log(event.target)
