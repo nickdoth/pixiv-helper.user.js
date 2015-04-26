@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Pixiv Helper
 // @namespace    http://gitcafe.com/nickdoth/pixiv-helper.user.js
-// @version      1.2.1
+// @version      1.2.2
 // @description  P站懒人补丁, 简化收藏和关注等操作.
 // @author       nickdoth <nick.doth@gmail.com>
 // @match        http://www.pixiv.net/member_illust.php*
@@ -124,7 +124,46 @@ module.exports = ajax;
 
 
 },{}],2:[function(require,module,exports){
+module.exports = function al(msg) {
+	var node = $('<div>');
+
+	node.css({
+	    'position': 'fixed',
+	    'background-color': 'black',
+	    'color': '#fff',
+	    'top': '10%',
+	    'left': '50%',
+	    'padding': '15px',
+	    'border-radius': '2px',
+	    'z-index': 999,
+	    'transition': 'opacity .8s',
+
+	    'opacity': 0
+	});
+
+	node.html(msg);
+
+	$('body').append(node);
+
+	setTimeout(function() {
+		node.css('opacity', 1);
+
+		setTimeout(function() {
+			node.on('transitionend', function(event) {
+				node.remove();
+			});
+
+			node.css('opacity', 0);
+		}, 3000);
+	}, 1);
+
+		
+}
+
+
+},{}],3:[function(require,module,exports){
 var ajax = require('./ajax');
+var alert = require('./alert');
 
 var added = false;
 
@@ -161,14 +200,15 @@ $('.add-bookmark').on('click', function(event) {
 })
 
 
-},{"./ajax":1}],3:[function(require,module,exports){
+},{"./ajax":1,"./alert":2}],4:[function(require,module,exports){
 require('./bookmark-button');
 require('./ugoira-download');
 require('./quick-follow');
 
 
-},{"./bookmark-button":2,"./quick-follow":4,"./ugoira-download":5}],4:[function(require,module,exports){
+},{"./bookmark-button":3,"./quick-follow":5,"./ugoira-download":6}],5:[function(require,module,exports){
 var ajax = require('./ajax');
+var alert = require('./alert');
 
 $('body').on('submit', function(event) {
 	console.log(event.target)
@@ -191,7 +231,7 @@ $('body').on('submit', function(event) {
 })
 
 
-},{"./ajax":1}],5:[function(require,module,exports){
+},{"./ajax":1,"./alert":2}],6:[function(require,module,exports){
 // pixiv.context.ugokuIllustFullscreenData
 var bookmarkButton = $('.add-bookmark, .edit-bookmark')[0];
 var ugoiraInfo = pixiv.context.ugokuIllustFullscreenData;
@@ -206,4 +246,4 @@ if (ugoiraInfo) {
 
 
 
-},{}]},{},[3]);
+},{}]},{},[4]);
